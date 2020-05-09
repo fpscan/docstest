@@ -1,6 +1,8 @@
 site_name: Libretro Docs Test
-site_url: 'https://docstest.retroarch.com'
-repo_name: 'fpscan/docs'
+site_url: 'https://docs.retroarch.com'
+site_description: >-
+  This is RetroArch's document page, modification or development information outside of this repo may be incorrect.
+repo_name: 'libretro/docs'
 repo_url: 'https://github.com/fpscan/docstest'
 edit_uri: 'edit/master/docs'
 nav:
@@ -346,23 +348,23 @@ extra:
   palette:
     primary: 'blue'
     accent:  'blue'
+
 theme:
-  name: material
-  custom_dir: material
-  logo: 'image/branding/invader.png'
-  favicon: 'image/branding/invader.png'
-    # 404 page
-  static_templates:
-    - 404.html
-  # Don't include MkDocs' JavaScript
+  name: 'material'
   include_search_page: false
   search_index_only: true
+  language: en
   features:
     - tabs
     #- instant
   palette:
     primary: indigo
     accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: 'image/branding/invader.png'
+  favicon: 'image/branding/invader.png'
 
 markdown_extensions:
   - markdown.extensions.admonition
@@ -390,8 +392,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
+      user: libretro
+      repo: docs
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.snippets:
