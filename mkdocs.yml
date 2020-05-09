@@ -347,7 +347,7 @@ extra:
     primary: 'blue'
     accent:  'blue'
 theme:
-  name: 'material'
+  name: null
   custom_dir: material
   logo: 'image/branding/invader.png'
   favicon: 'image/branding/invader.png'
