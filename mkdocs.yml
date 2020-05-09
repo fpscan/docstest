@@ -3,7 +3,7 @@ site_url: 'https://docs.retroarch.com'
 site_description: >-
   This is RetroArch's document page, modification or development information outside of this repo may be incorrect.
 repo_name: 'libretro/docs'
-repo_url: 'https://github.com/fpscan/docstest'
+repo_url: 'https://github.com/libretro/docs'
 edit_uri: 'edit/master/docs'
 copyright: Copyright &copy; 2010 <a href="https://libretro.com">Libretro</a>
 nav:
