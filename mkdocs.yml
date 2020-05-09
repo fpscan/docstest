@@ -347,9 +347,26 @@ extra:
     primary: 'blue'
     accent:  'blue'
 theme:
-  name: 'material'
+  name: null
+  custom_dir: material
   logo: 'image/branding/invader.png'
   favicon: 'image/branding/invader.png'
+    # 404 page
+  static_templates:
+    - 404.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+    language: en
+  features:
+    - tabs
+    #- instant
+  palette:
+    primary: indigo
+    accent: indigo
+    
 markdown_extensions:
   - markdown.extensions.admonition
   - markdown.extensions.codehilite:
