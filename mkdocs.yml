@@ -347,13 +347,64 @@ extra:
     primary: 'blue'
     accent:  'blue'
 theme:
-  name: 'material'
+  name: null
+  custom_dir: material
+
   logo: 'image/branding/invader.png'
   favicon: 'image/branding/invader.png'
+  static_templates:
+    - 404.html
+  
+
+
 markdown_extensions:
   - markdown.extensions.admonition
+  - markdown.extensions.attr_list
   - markdown.extensions.codehilite:
       linenums: true
+      guess_lang: false
   - markdown.extensions.nl2br
   - markdown.extensions.toc:
       permalink: true
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  # - pymdownx.highlight:
+  #     linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde      
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/libretro
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/libretro
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/libretro/
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/libretro
