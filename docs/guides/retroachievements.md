@@ -21,7 +21,7 @@
     The hardcore mode prevents you from using emulation features like savestates, slow motion and cheats.
     **BUT** gives you double points.
 
-![](/image/retroarch/retroachievements/achievements_settings.jpg)
+![](../image/retroarch/retroachievements/achievements_settings.jpg)
 
 ## **Check your connection to the service**
 
@@ -33,7 +33,7 @@ Launch the game and trigger the Quick Menu.
 
 Go to Achievements and you should see a list of the unlockable trophies for this game.
 
-![](/image/retroarch/retroachievements/achievements_list.png)
+![](../image/retroarch/retroachievements/achievements_list.png)
 
 ## **Check your progress**
 
@@ -45,7 +45,7 @@ Trophies unlocked in hardcore mode are marked with a special color.
 
 You can also check the progress of your friends and add comments on their trophies.
 
-![](/image/retroarch/retroachievements/achievements_progress.png)
+![](../image/retroarch/retroachievements/achievements_progress.png)
 
 ## **Cores Compatibility**
 
@@ -74,7 +74,7 @@ You can also check the progress of your friends and add comments on their trophi
 | Core                                                             | Supported | Notes |
 |------------------------------------------------------------------|:---------:|:-----:|
 | [Handy](https://github.com/libretro/libretro-handy)              | ✔         |       |
-| [Beetle Handy](https://github.com/libretro/beetle-lynx-libretro) | ✔         | Beetle Handy is incompatible with modern No-Intro romsets as they require headers to work properly. The regular Handy core does not have this issue. |
+| [Beetle Handy](https://github.com/libretro/beetle-lynx-libretro) | ✔         |       |
 
 ### Wonderswan / Wonderswan Color
 
@@ -118,7 +118,7 @@ You can also check the progress of your friends and add comments on their trophi
 | [SameBoy](https://github.com/libretro/SameBoy)            | ✔         | |
 | [Gambatte](https://github.com/libretro/gambatte-libretro) | ✔         | |
 | [VBA-M](https://github.com/libretro/vbam-libretro)        | ✔         | |
-| [mGBA](https://github.com/libretro/mgba)                  | ✕         | Achievements only work for the Game Boy Advance |
+| [mGBA](https://github.com/libretro/mgba)                  | ✔         | |
 | [Emux GB](https://github.com/libretro/emux)               | ✕         | |
 | [TGB Dual](https://github.com/libretro/tgbdual-libretro)  | ✕         | |
 
@@ -192,7 +192,7 @@ You can also check the progress of your friends and add comments on their trophi
 | [Gearsystem](https://github.com/drhelius/Gearsystem)           | ✔         | |
 | [Genesis Plus GX](https://github.com/libretro/Genesis-Plus-GX) | ✔         | |
 | [Picodrive](https://github.com/libretro/picodrive)             | ✔         | |
-| [BlastEm](https://github.com/libretro/blastem)                 | x         | |
+| [BlastEm](https://github.com/libretro/blastem)                 | ✔         | |
 | [Emux SMS](https://github.com/libretro/emux)                   | ✕         | |
 | [SMS Plus GX](https://github.com/libretro/smsplus-gx)          | ✔         | |
 
@@ -222,8 +222,8 @@ You can also check the progress of your friends and add comments on their trophi
 
 | Core                                                           | Supported | Notes |
 |----------------------------------------------------------------|:---------:|:-----:|
-| [Genesis Plus GX](https://github.com/libretro/Genesis-Plus-GX) | ✔         | Sega CD support is a work in progress. |
-| [Picodrive](https://github.com/libretro/picodrive)             | x         | |
+| [Genesis Plus GX](https://github.com/libretro/Genesis-Plus-GX) | ✔         | |
+| [Picodrive](https://github.com/libretro/picodrive)             | ✔         | |
 
 ### Sega Saturn
 

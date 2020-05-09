@@ -2,7 +2,7 @@
 
 ## Background
 
-Caprice32 is a software emulator of the Amstrad CPC 8bit home computer series running on Linux and Windows. The emulator faithfully imitates the CPC464, CPC664, and CPC6128 models. By recreating the operations of all hardware components at a low level, the emulator achieves a high degree of compatibility with original CPC software. These programs or games can be run unmodified at real-time or higher speeds, depending on the emulator host environment.
+Caprice32 is a software emulator of the Amstrad CPC 8bit home computer series running on Linux and Windows. The emulator faithfully imitates the CPC464, CPC664, CPC6128, CPC6128+ and GX4000 models. By recreating the operations of all hardware components at a low level, the emulator achieves a high degree of compatibility with original CPC software. These programs or games can be run unmodified at real-time or higher speeds, depending on the emulator host environment.
 
 ### Author/License
 
@@ -28,6 +28,7 @@ Content that can be loaded by the Caprice32 core have the following file extensi
 - .cdt
 - .voc
 - .m3u
+- .cpr
 - .zip
 
 ## Databases
@@ -69,7 +70,7 @@ Frontend-level settings or features that the Caprice32 core respects.
 
 ### Directories
 
-The Caprice32 core's internal core name is 'cap32'
+The Caprice32 core's internal core name is 'cap32'.
 
 The Caprice32 core saves/loads to/from these directories.
 
@@ -83,24 +84,24 @@ When you have a multi disk game, you can use a m3u file to specify each disk of 
 
 A M3U file is a simple text file with one disk per line (see https://en.wikipedia.org/wiki/M3U).
 
-Example : **Alive (F).m3u**
+Example: **Alive (F).m3u**
 
     Alive (F) - Disk 1A.dsk
     Alive (F) - Disk 1B.dsk
 
 Path can be absolute or relative to the location of the M3U file.
 
-When a game ask for it, you can change the current disk in the RetroArch 'Disk Control' menu :
+When a game ask for it, you can change the current disk in the RetroArch 'Disk Control' menu:
 
- * Eject the current disk with 'Disk Cycle Tray Status'.
- * Select the right disk index.
- * Insert the new disk with 'Disk Cycle Tray Status'.
+* Eject the current disk with 'Disk Cycle Tray Status'
+* Select the right disk index
+* Insert the new disk with 'Disk Cycle Tray Status'
 
 ### Geometry and timing
 
-- The Caprice32 core's core provided FPS is 50
-- The Caprice32 core's core provided sample rate is 44.100
-- The Caprice32 core's core provided aspect ratio is 3/4
+* The Caprice32 core's core provided FPS is 50
+* The Caprice32 core's core provided sample rate is 44.100
+* The Caprice32 core's core provided aspect ratio is 3/4
 
 ## Usage
 
@@ -108,63 +109,50 @@ The Caprice32 core has a virtual keyboard GUI that can be accessed through User 
 
 The mouse cursor can be controlled by RetroPad D-Pad inputs when the RetroPad Select input is pressed.
 
-![](/image/core/caprice32/vkbd.png)
+![](../image/core/caprice32/vkbd.png)
 
 Here are some actions you can do in page 2 of the virtual keyboard GUI.
 
-- "EXT" EXIT EMU
-- "SNA" SAVE SNA
-- "DSK" SWITCH DSK DRIVE A/B
-- "Col" SWTICH FGCOL ON/OFF
+* "EXT" EXIT EMU
+* "SNA" SAVE SNA
+* "DSK" SWITCH DSK DRIVE A/B
+* "Col" SWITCH FGCOL ON/OFF
 
 ## Core options
 
-The Caprice32 core has the following option(s) that can be tweaked from the core options menu. The default setting is bolded. 
+The Caprice32 core has the following option(s) that can be tweaked from the core options menu. 
 
-Settings with (Restart) means that core has to be closed for the new setting to be applied on next launch.
+!!! tip
+    Settings with (Restart) means that core has to be closed for the new setting to be applied on next launch.
 
-- **Autorun** [cap32_autorun] (**enabled**|disabled)
+| Core option | Description | Default |
+| ---         | ---         | ---     |
+| Autorun     | If enabled, the core will run the first bas/bin found in the DSK. `cap32_autorun = "enabled|disabled"` | `enabled`     |
+| Combo Key   | See [Combo list](#combo-list) below. `cap32_combokey = "select|y|b|disabled"`                          |  `select`      |
+| Internal resolution   | Self-explanatory. `cap32_resolution = "384x272|400x300"`                                       | `384x272`     |
+| Model (Restart)       | Choose which Amstrad CPC model to emulate. `cap32_model = "6128|464|6128+"`                    | `6128`        |
+| Ram size (Restart)    | CPC physical RAM size in kB. `cap32_ram = "128|64|192|512|576"`                                | `128`         |
+| Status Bar            | Not yet implemented, future option. `cap32_statusbar = "disabled|enabled"`                     | `disabled`    |
+| Monitor Type          | Choose between a color display or a monochrome display. `cap32_scr_tube = "color|green|white"` | `color`       |
+| Monitor Intensity     | Screen cathodic tube intensity. `cap32_scr_intensity = "5|6|7|8|9|10|11|12|13|14|15"`          | `5`           |
+| CPC Language (Restart) | Choose between english, french or spanish keyboard layout. `cap32_lang_layout = "english|french|spanish"` | `english` |
+| User 1 Joystick Configuration | Select Joy/Overlay configuration for player 1. `cap32_retrojoy0 = "joystick|qaop|incentive"` | `joystick` |
+| User 2 Joystick Configuration | Select Joy/Overlay configuration for player 2. `cap32_retrojoy1 = "joystick|qaop|incentive|joystick_port2"` | `joystick` |
 
-	If enabled, the core will run the first bas/bin found in the DSK.
+!!! note "cap32_scr_tube = color"
+	![](../image/core/caprice32/tube_off.png)
 	
-- **Internal resolution** [cap32_resolution] (**384x272**|400x300)
-
-	Self-explanatory.
-	
-- **Model:** [cap32_model] (**6128**|464)
-
-	Choose which Amstrad CPC model to emulate.
-	
-- **Ram size:** [cap32_ram] (**128**|64|192|512|576)
-
-	CPC physical RAM size in kB
-	
-- **Monitor Type** [cap32_scr_tube] (**color**|green|white)
-
-	Choose between a color display or a monochrome display.
-
-??? note "cap32_scr_tube - color"
-	![](/image/core/caprice32tube_off.png)
-	
-??? note "cap32_scr_tube - green"
-	![](/image/core/caprice32tube_on.png)	
-
-- **scr_intensity** [cap32_scr_intensity] (**5**|6|7|8|9|10|11|12|13|14|15)
-
-	Screen cathodic tube intensity.
+!!! note "cap32_scr_tube = green"
+	![](../image/core/caprice32/tube_on.png)	
 	
 !!! attention
-	These 'scr_intensity' core option screenshots have been taken with the 'cap32_scr_tube' core option set to color.
+	These 'scr_intensity' core option screenshots have been taken with the 'cap32_scr_tube' core option set to 'color'.
 
-??? note "scr_intensity - 5"
-	![](/image/core/caprice325.png)
+!!! note "scr_intensity = 5"
+	![](../image/core/caprice32/5.png)
 	
-??? note "scr_intensity - 15"
-	![](/image/core/caprice3215.png)
-	
-- **User (x) Joystick Configuration** [cap32_retrojoy0] (**joystick**|qaop|incentive)
-
-	Select Joy/Overlay configuration.
+!!! note "scr_intensity = 15"
+	![](../image/core/caprice32/15.png)
 	
 ## Controllers
 
@@ -187,78 +175,80 @@ The Caprice32 core supports the following device type(s) in the controls menu, b
 
 | User 1 Remap descriptors | RetroPad Inputs                                | Amstrad Joystick             |
 |--------------------------|------------------------------------------------|------------------------------|
-| B                        | ![](/image/retropad/retro_b.png)             | FIRE1                        |
-| Y                        | ![](/image/retropad/retro_y.png)             | SPACE                        |
-| Start                    | ![](/image/retropad/retro_start.png)         | J *(to select Joy in games)* |
-| Up                       | ![](/image/retropad/retro_dpad_up.png)       | JOY UP                       |
-| Down                     | ![](/image/retropad/retro_dpad_down.png)     | JOY DOWN                     |
-| Left                     | ![](/image/retropad/retro_dpad_left.png)     | JOY LEFT                     |
-| Right                    | ![](/image/retropad/retro_dpad_right.png)    | JOY RIGHT                    |
-| A                        | ![](/image/retropad/retro_a.png)             | FIRE2                        |
-| X                        | ![](/image/retropad/retro_x.png)             | S                            |
-| L                        | ![](/image/retropad/retro_l1.png)            | INTRO                        |
-| R                        | ![](/image/retropad/retro_r1.png)            | SHIFT                        |
-| L2                       | ![](/image/retropad/retro_l2.png)            | CTRL                         |
-| R2                       | ![](/image/retropad/retro_r2.png)            | COPY                         |
-| Select                   | ![](/image/retropad/retro_select.png)        | COMBO (see bellow)           |
-| L3                       | ![](/image/retropad/retro_l3.png)            |                              |
-| R3                       | ![](/image/retropad/retro_r3.png)            |                              |
+| B                        | ![](../image/retropad/retro_b.png)             | FIRE1                        |
+| Y                        | ![](../image/retropad/retro_y.png)             | SPACE                        |
+| Start                    | ![](../image/retropad/retro_start.png)         | J *(to select Joy in games)* |
+| Up                       | ![](../image/retropad/retro_dpad_up.png)       | JOY UP                       |
+| Down                     | ![](../image/retropad/retro_dpad_down.png)     | JOY DOWN                     |
+| Left                     | ![](../image/retropad/retro_dpad_left.png)     | JOY LEFT                     |
+| Right                    | ![](../image/retropad/retro_dpad_right.png)    | JOY RIGHT                    |
+| A                        | ![](../image/retropad/retro_a.png)             | FIRE2                        |
+| X                        | ![](../image/retropad/retro_x.png)             | S                            |
+| L                        | ![](../image/retropad/retro_l1.png)            | INTRO                        |
+| R                        | ![](../image/retropad/retro_r1.png)            | SHIFT                        |
+| L2                       | ![](../image/retropad/retro_l2.png)            | CTRL                         |
+| R2                       | ![](../image/retropad/retro_r2.png)            | COPY                         |
+| Select                   | ![](../image/retropad/retro_select.png)        | COMBO (see bellow)           |
+| L3                       | ![](../image/retropad/retro_l3.png)            |                              |
+| R3                       | ![](../image/retropad/retro_r3.png)            |                              |
 
 #### JOY CONFIG QAOP (GENERAL KEYB)
 
 | User 1 Remap descriptors | RetroPad Inputs                                | Amstrad Joystick             |
 |--------------------------|------------------------------------------------|------------------------------|
-| B                        | ![](/image/retropad/retro_b.png)             | F1                           |
-| Y                        | ![](/image/retropad/retro_y.png)             | F2                           |
-| Start                    | ![](/image/retropad/retro_start.png)         | K *(to select Keyb in games)*|
-| Up                       | ![](/image/retropad/retro_dpad_up.png)       | Q                            |
-| Down                     | ![](/image/retropad/retro_dpad_down.png)     | A                            |
-| Left                     | ![](/image/retropad/retro_dpad_left.png)     | O                            |
-| Right                    | ![](/image/retropad/retro_dpad_right.png)    | P                            |
-| A                        | ![](/image/retropad/retro_a.png)             | SPACE                        |
-| X                        | ![](/image/retropad/retro_x.png)             | H                            |
-| L                        | ![](/image/retropad/retro_l1.png)            | INTRO                        |
-| R                        | ![](/image/retropad/retro_r1.png)            | SHIFT                        |
-| L2                       | ![](/image/retropad/retro_l2.png)            | CTRL                         |
-| R2                       | ![](/image/retropad/retro_r2.png)            | COPY                         |
-| Select                   | ![](/image/retropad/retro_select.png)        | COMBO (see bellow)           |
-| L3                       | ![](/image/retropad/retro_l3.png)            |                              |
-| R3                       | ![](/image/retropad/retro_r3.png)            |                              |
+| B                        | ![](../image/retropad/retro_b.png)             | F1                           |
+| Y                        | ![](../image/retropad/retro_y.png)             | F2                           |
+| Start                    | ![](../image/retropad/retro_start.png)         | K *(to select Keyb in games)*|
+| Up                       | ![](../image/retropad/retro_dpad_up.png)       | Q                            |
+| Down                     | ![](../image/retropad/retro_dpad_down.png)     | A                            |
+| Left                     | ![](../image/retropad/retro_dpad_left.png)     | O                            |
+| Right                    | ![](../image/retropad/retro_dpad_right.png)    | P                            |
+| A                        | ![](../image/retropad/retro_a.png)             | SPACE                        |
+| X                        | ![](../image/retropad/retro_x.png)             | H                            |
+| L                        | ![](../image/retropad/retro_l1.png)            | INTRO                        |
+| R                        | ![](../image/retropad/retro_r1.png)            | SHIFT                        |
+| L2                       | ![](../image/retropad/retro_l2.png)            | CTRL                         |
+| R2                       | ![](../image/retropad/retro_r2.png)            | COPY                         |
+| Select                   | ![](../image/retropad/retro_select.png)        | COMBO (see bellow)           |
+| L3                       | ![](../image/retropad/retro_l3.png)            |                              |
+| R3                       | ![](../image/retropad/retro_r3.png)            |                              |
 
 #### JOY INCENTIVE ([INCENTIVE GAMES](https://en.wikipedia.org/wiki/Incentive_Software))
 
 | User 1 Remap descriptors | RetroPad Inputs                                | Amstrad Joystick  |
 |--------------------------|------------------------------------------------|-------------------|
-| B                        | ![](/image/retropad/retro_b.png)             | SPACE             |
-| Y                        | ![](/image/retropad/retro_y.png)             | W                 |
-| Start                    | ![](/image/retropad/retro_start.png)         | F                 |
-| Up                       | ![](/image/retropad/retro_dpad_up.png)       | CURSOR UP         |
-| Down                     | ![](/image/retropad/retro_dpad_down.png)     | CURSOR DOWN       |
-| Left                     | ![](/image/retropad/retro_dpad_left.png)     | CURSOR LEFT       |
-| Right                    | ![](/image/retropad/retro_dpad_right.png)    | CURSOR RIGHT      |
-| A                        | ![](/image/retropad/retro_a.png)             | A                 |
-| X                        | ![](/image/retropad/retro_x.png)             | C                 |
-| L                        | ![](/image/retropad/retro_l1.png)            | P                 |
-| R                        | ![](/image/retropad/retro_r1.png)            | L                 |
-| L2                       | ![](/image/retropad/retro_l2.png)            | R                 |
-| R2                       | ![](/image/retropad/retro_r2.png)            | U                 |
-| Select                   | ![](/image/retropad/retro_select.png)        | COMBO (see bellow)|
-| L3                       | ![](/image/retropad/retro_l3.png)            |                   |
-| R3                       | ![](/image/retropad/retro_r3.png)            |                   |
+| B                        | ![](../image/retropad/retro_b.png)             | SPACE             |
+| Y                        | ![](../image/retropad/retro_y.png)             | W                 |
+| Start                    | ![](../image/retropad/retro_start.png)         | F                 |
+| Up                       | ![](../image/retropad/retro_dpad_up.png)       | CURSOR UP         |
+| Down                     | ![](../image/retropad/retro_dpad_down.png)     | CURSOR DOWN       |
+| Left                     | ![](../image/retropad/retro_dpad_left.png)     | CURSOR LEFT       |
+| Right                    | ![](../image/retropad/retro_dpad_right.png)    | CURSOR RIGHT      |
+| A                        | ![](../image/retropad/retro_a.png)             | A                 |
+| X                        | ![](../image/retropad/retro_x.png)             | C                 |
+| L                        | ![](../image/retropad/retro_l1.png)            | P                 |
+| R                        | ![](../image/retropad/retro_r1.png)            | L                 |
+| L2                       | ![](../image/retropad/retro_l2.png)            | R                 |
+| R2                       | ![](../image/retropad/retro_r2.png)            | U                 |
+| Select                   | ![](../image/retropad/retro_select.png)        | COMBO (see bellow)|
+| L3                       | ![](../image/retropad/retro_l3.png)            |                   |
+| R3                       | ![](../image/retropad/retro_r3.png)            |                   |
+
+#### COMBO LIST
 
 If you press **SELECT** you could make a combo with other buttons:
 
 | Combo          | RetroPad Inputs                                                                          | Amstrad Writes   |
 |----------------|------------------------------------------------------------------------------------------|------------------|
-| Select + B     | ![](/image/retropad/retro_select.png) + ![](/image/retropad/retro_b.png)             | CAT              |
-| Select + Y     | ![](/image/retropad/retro_select.png) + ![](/image/retropad/retro_y.png)             | \|CPM            |
-| Select + Start | ![](/image/retropad/retro_select.png) + ![](/image/retropad/retro_start.png)         | RUN"DISK RUN"DISC|
-| Select + Up    | ![](/image/retropad/retro_select.png) + ![](/image/retropad/retro_dpad_up.png)       | \|TAPE RUN"      |
-| Select + Down  | ![](/image/retropad/retro_select.png) + ![](/image/retropad/retro_dpad_down.png)     | SHOW V-KEYBOARD  |
-| Select + Left  | ![](/image/retropad/retro_select.png) + ![](/image/retropad/retro_dpad_left.png)     | [1], [Y]         |
-| Select + Right | ![](/image/retropad/retro_select.png) + ![](/image/retropad/retro_dpad_right.png)    | [2], [N]         |
-| Select + A     | ![](/image/retropad/retro_select.png) + ![](/image/retropad/retro_a.png)             | [3], [R]         |
-| Select + X     | ![](/image/retropad/retro_select.png) + ![](/image/retropad/retro_x.png)             | [4], [S]         |
+| Select + B     | ![](../image/retropad/retro_select.png) + ![](../image/retropad/retro_b.png)             | CAT              |
+| Select + Y     | ![](../image/retropad/retro_select.png) + ![](../image/retropad/retro_y.png)             | \|CPM            |
+| Select + Start | ![](../image/retropad/retro_select.png) + ![](../image/retropad/retro_start.png)         | RUN"DISK RUN"DISC|
+| Select + Up    | ![](../image/retropad/retro_select.png) + ![](../image/retropad/retro_dpad_up.png)       | \|TAPE RUN"      |
+| Select + Down  | ![](../image/retropad/retro_select.png) + ![](../image/retropad/retro_dpad_down.png)     | SHOW V-KEYBOARD  |
+| Select + Left  | ![](../image/retropad/retro_select.png) + ![](../image/retropad/retro_dpad_left.png)     | [1], [Y]         |
+| Select + Right | ![](../image/retropad/retro_select.png) + ![](../image/retropad/retro_dpad_right.png)    | [2], [N]         |
+| Select + A     | ![](../image/retropad/retro_select.png) + ![](../image/retropad/retro_a.png)             | [3], [R]         |
+| Select + X     | ![](../image/retropad/retro_select.png) + ![](../image/retropad/retro_x.png)             | [4], [S]         |
 
 *This combos are useful to load games and select options in game-menus.*
 
@@ -302,8 +292,8 @@ Choose AMSTRAD KEYBOARD in Quick Menu > Controls to customize your retropad keys
 
 | RetroMouse Inputs                                     | Virtual Keyboard GUI Inputs |
 |-------------------------------------------------------|-----------------------------|
-| ![](/image/retromouse/retro_mouse.png) Mouse Cursor | Mouse Cursor                |
-| ![](/image/retromouse/retro_left.png) Mouse 1       | Mouse Left Button           |
+| ![](../image/retromouse/retro_mouse.png) Mouse Cursor | Mouse Cursor                |
+| ![](../image/retromouse/retro_left.png) Mouse 1       | Mouse Left Button           |
 
 ## External Links
 
